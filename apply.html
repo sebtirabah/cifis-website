@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Demander une certification</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #002654;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+      color: #444;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+    .file-upload {
+      background: #f0f4ff;
+      border: 2px dashed #002654;
+      border-radius: 8px;
+      padding: 15px;
+      text-align: center;
+      cursor: pointer;
+    }
+    .btn {
+      background: #ce1126;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+      width: fit-content;
+      margin: 1.5rem auto 0;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #a00e1f;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Demande de Certification d’Inventeur</h1>
+
+  <form id="inventorForm">
+    <div class="form-group">
+      <label for="fullname" id="lbl_fullname">Nom complet</label>
+      <input type="text" id="fullname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="country" id="lbl_country">Pays</label>
+      <input type="text" id="country" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" id="lbl_email">Adresse e-mail</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="field" id="lbl_field">Domaine de l’innovation</label>
+      <select id="field" required>
+        <option value="" id="opt_select">-- Sélectionner --</option>
+        <option value="tech" id="opt_tech">Technologie</option>
+        <option value="med" id="opt_med">Médecine & Santé</option>
+        <option value="env" id="opt_env">Environnement</option>
+        <option value="energy" id="opt_energy">Énergie</option>
+        <option value="edu" id="opt_edu">Éducation</option>
+        <option value="other" id="opt_other">Autre</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="invention" id="lbl_invention">Titre de l’invention</label>
+      <input type="text" id="invention" required>
+    </div>
+
+    <div class="form-group">
+      <label for="description" id="lbl_description">Description brève (max. 500 caractères)</label>
+      <textarea id="description" maxlength="500" required></textarea>
+    </div>
+
+    <div class="form-group">
+      <label id="lbl_files">Pièces jointes</label>
+      <div class="file-upload" id="fileDrop">
+        <span id="file_text">Cliquez ou déposez vos fichiers ici</span>
+        <input type="file" id="files" multiple style="display:none;">
+      </div>
+    </div>
+
+    <button type="submit" class="btn" id="submit_btn">Soumettre la demande</button>
+  </form>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  // الترجمات المضمنة
+  const translations = {
+    fr: {
+      page_title: "Demande de Certification d’Inventeur",
+      lbl_fullname: "Nom complet",
+      lbl_country: "Pays",
+      lbl_email: "Adresse e-mail",
+      lbl_field: "Domaine de l’innovation",
+      opt_select: "-- Sélectionner --",
+      opt_tech: "Technologie",
+      opt_med: "Médecine & Santé",
+      opt_env: "Environnement",
+      opt_energy: "Énergie",
+      opt_edu: "Éducation",
+      opt_other: "Autre",
+      lbl_invention: "Titre de l’invention",
+      lbl_description: "Description brève (max. 500 caractères)",
+      lbl_files: "Pièces jointes",
+      file_text: "Cliquez ou déposez vos fichiers ici",
+      submit_btn: "Soumettre la demande"
+    },
+    en: {
+      page_title: "Apply for Inventor Certification",
+      lbl_fullname: "Full Name",
+      lbl_country: "Country",
+      lbl_email: "Email Address",
+      lbl_field: "Field of Innovation",
+      opt_select: "-- Select --",
+      opt_tech: "Technology",
+      opt_med: "Medicine & Health",
+      opt_env: "Environment",
+      opt_energy: "Energy",
+      opt_edu: "Education",
+      opt_other: "Other",
+      lbl_invention: "Invention Title",
+      lbl_description: "Brief Description (max. 500 characters)",
+      lbl_files: "Attachments",
+      file_text: "Click or drop your files here",
+      submit_btn: "Submit Application"
+    },
+    ar: {
+      page_title: "طلب شهادة مخترع معتمد",
+      lbl_fullname: "الاسم الكامل",
+      lbl_country: "البلد",
+      lbl_email: "عنوان البريد الإلكتروني",
+      lbl_field: "مجال الابتكار",
+      opt_select: "-- اختر --",
+      opt_tech: "التكنولوجيا",
+      opt_med: "الطب والصحة",
+      opt_env: "البيئة",
+      opt_energy: "الطاقة",
+      opt_edu: "التعليم",
+      opt_other: "أخرى",
+      lbl_invention: "عنوان الاختراع",
+      lbl_description: "وصف مختصر (500 حرف كحد أقصى)",
+      lbl_files: "المرفقات",
+      file_text: "انقر أو اسحب ملفاتك هنا",
+      submit_btn: "إرسال الطلب"
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('lbl_fullname').textContent = trans.lbl_fullname;
+    document.getElementById('lbl_country').textContent = trans.lbl_country;
+    document.getElementById('lbl_email').textContent = trans.lbl_email;
+    document.getElementById('lbl_field').textContent = trans.lbl_field;
+    document.getElementById('opt_select').textContent = trans.opt_select;
+    document.getElementById('opt_tech').textContent = trans.opt_tech;
+    document.getElementById('opt_med').textContent = trans.opt_med;
+    document.getElementById('opt_env').textContent = trans.opt_env;
+    document.getElementById('opt_energy').textContent = trans.opt_energy;
+    document.getElementById('opt_edu').textContent = trans.opt_edu;
+    document.getElementById('opt_other').textContent = trans.opt_other;
+    document.getElementById('lbl_invention').textContent = trans.lbl_invention;
+    document.getElementById('lbl_description').textContent = trans.lbl_description;
+    document.getElementById('lbl_files').textContent = trans.lbl_files;
+    document.getElementById('file_text').textContent = trans.file_text;
+    document.getElementById('submit_btn').textContent = trans.submit_btn;
+
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  // ربط أزرار التبديل
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // تمكين رفع الملفات بالنقر
+  document.getElementById('fileDrop').addEventListener('click', () => {
+    document.getElementById('files').click();
+  });
+
+  // معالجة إرسال النموذج
+  document.getElementById('inventorForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const lang = localStorage.getItem('cifis_lang') || 'fr';
+    const successMessages = {
+      fr: "Merci ! Votre demande a été soumise avec succès.",
+      en: "Thank you! Your application has been submitted successfully.",
+      ar: "شكرًا لك! تم إرسال طلبك بنجاح."
+    };
+    
+    alert(successMessages[lang]);
+    
+    // توليد رقم شهادة مؤقت وتحويل المستخدم
+    const name = encodeURIComponent(document.getElementById('fullname').value);
+    const invention = encodeURIComponent(document.getElementById('invention').value);
+    const certId = "CIFIS-2026-TEMP";
+    
+    window.location.href = `certificate.html?id=${certId}&name=${name}&invention=${invention}`;
+  });
+
+  // تعيين اللغة عند التحميل
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>

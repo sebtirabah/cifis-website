@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Événements – CIFIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      color: #002654;
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .event-card {
+      background: white;
+      border-radius: 10px;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-left: 4px solid #ce1126;
+    }
+    .event-date {
+      color: #ce1126;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+    .event-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #002654;
+    }
+    .event-desc {
+      margin-bottom: 1rem;
+      color: #555;
+    }
+    .btn-register {
+      background: #002654;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    .btn-register:hover {
+      background: #001a3a;
+    }
+
+    /* Formulaire d'inscription */
+    .registration-form {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      margin-top: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: bold;
+    }
+    input, select {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Nos Prochains Événements</h1>
+
+  <!-- Événement 1 -->
+  <div class="event-card">
+    <div class="event-date" id="event1_date">15 avril 2026</div>
+    <div class="event-title" id="event1_title">Forum International de l’Innovation Technologique</div>
+    <div class="event-desc" id="event1_desc">
+      Un rassemblement mondial des inventeurs pour présenter leurs innovations et échanger avec des experts en propriété intellectuelle.
+    </div>
+    <a href="register-event.html" class="btn-register" id="event1_btn">S’inscrire</a>
+  </div>
+
+  <!-- Événement 2 -->
+  <div class="event-card">
+    <div class="event-date" id="event2_date">10 juin 2026</div>
+    <div class="event-title" id="event2_title">Atelier : Éthique de l’IA et Responsabilité des Inventeurs</div>
+    <div class="event-desc" id="event2_desc">
+      Une session interactive sur les défis éthiques liés aux inventions dans le domaine de l’intelligence artificielle.
+    </div>
+    <a href="register-event.html" class="btn-register" id="event2_btn">S’inscrire</a>
+  </div>
+
+  <!-- Formulaire d'inscription générale -->
+  <div class="registration-form">
+    <h2 style="text-align: center; margin-bottom: 1.5rem; color: #002654;" id="notify_title">Recevoir les annonces d’événements</h2>
+    <form id="notifyForm">
+      <div class="form-group">
+        <label for="name" id="notify_name_label">Nom complet</label>
+        <input type="text" id="name" required>
+      </div>
+      <div class="form-group">
+        <label for="email" id="notify_email_label">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="interest" id="notify_interest_label">Domaine d’intérêt</label>
+        <select id="interest" required>
+          <option value="" id="notify_opt_select">-- Sélectionner --</option>
+          <option value="tech" id="notify_opt_tech">Technologie</option>
+          <option value="med" id="notify_opt_med">Santé</option>
+          <option value="env" id="notify_opt_env">Environnement</option>
+          <option value="ai" id="notify_opt_ai">Intelligence Artificielle</option>
+          <option value="other" id="notify_opt_other">Autre</option>
+        </select>
+      </div>
+      <button type="submit" style="background: #ce1126; color: white; padding: 10px 20px; border: none; border-radius: 4px; width: 100%; cursor: pointer;" id="notify_submit_btn">
+        S’abonner aux annonces
+      </button>
+    </form>
+  </div>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  // الترجمات المضمنة
+  const translations = {
+    fr: {
+      page_title: "Nos Prochains Événements",
+      event1_date: "15 avril 2026",
+      event1_title: "Forum International de l’Innovation Technologique",
+      event1_desc: "Un rassemblement mondial des inventeurs pour présenter leurs innovations et échanger avec des experts en propriété intellectuelle.",
+      event1_btn: "S’inscrire",
+      event2_date: "10 juin 2026",
+      event2_title: "Atelier : Éthique de l’IA et Responsabilité des Inventeurs",
+      event2_desc: "Une session interactive sur les défis éthiques liés aux inventions dans le domaine de l’intelligence artificielle.",
+      event2_btn: "S’inscrire",
+      notify_title: "Recevoir les annonces d’événements",
+      notify_name_label: "Nom complet",
+      notify_email_label: "Email",
+      notify_interest_label: "Domaine d’intérêt",
+      notify_opt_select: "-- Sélectionner --",
+      notify_opt_tech: "Technologie",
+      notify_opt_med: "Santé",
+      notify_opt_env: "Environnement",
+      notify_opt_ai: "Intelligence Artificielle",
+      notify_opt_other: "Autre",
+      notify_submit_btn: "S’abonner aux annonces"
+    },
+    en: {
+      page_title: "Upcoming Events",
+      event1_date: "April 15, 2026",
+      event1_title: "International Forum on Technological Innovation",
+      event1_desc: "A global gathering of inventors to present their innovations and exchange with intellectual property experts.",
+      event1_btn: "Register",
+      event2_date: "June 10, 2026",
+      event2_title: "Workshop: AI Ethics and Inventor Responsibility",
+      event2_desc: "An interactive session on ethical challenges related to inventions in artificial intelligence.",
+      event2_btn: "Register",
+      notify_title: "Receive Event Announcements",
+      notify_name_label: "Full Name",
+      notify_email_label: "Email",
+      notify_interest_label: "Field of Interest",
+      notify_opt_select: "-- Select --",
+      notify_opt_tech: "Technology",
+      notify_opt_med: "Health",
+      notify_opt_env: "Environment",
+      notify_opt_ai: "Artificial Intelligence",
+      notify_opt_other: "Other",
+      notify_submit_btn: "Subscribe to Announcements"
+    },
+    ar: {
+      page_title: "فعاليّاتنا القادمة",
+      event1_date: "15 أبريل 2026",
+      event1_title: "منتدى الابتكار التكنولوجي الدولي",
+      event1_desc: "تجمّع عالمي للمخترعين لعرض ابتكاراتهم والتفاعل مع خبراء الملكية الفكرية.",
+      event1_btn: "التسجيل",
+      event2_date: "10 يونيو 2026",
+      event2_title: "ورشة عمل: أخلاقيات الذكاء الاصطناعي ومسؤولية المخترعين",
+      event2_desc: "جلسة تفاعلية حول التحديات الأخلاقية المرتبطة بالاختراعات في مجال الذكاء الاصطناعي.",
+      event2_btn: "التسجيل",
+      notify_title: "تلقي إشعارات الفعاليات",
+      notify_name_label: "الاسم الكامل",
+      notify_email_label: "البريد الإلكتروني",
+      notify_interest_label: "مجال الاهتمام",
+      notify_opt_select: "-- اختر --",
+      notify_opt_tech: "التكنولوجيا",
+      notify_opt_med: "الصحة",
+      notify_opt_env: "البيئة",
+      notify_opt_ai: "الذكاء الاصطناعي",
+      notify_opt_other: "أخرى",
+      notify_submit_btn: "الاشتراك في الإشعارات"
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('event1_date').textContent = trans.event1_date;
+    document.getElementById('event1_title').textContent = trans.event1_title;
+    document.getElementById('event1_desc').textContent = trans.event1_desc;
+    document.getElementById('event1_btn').textContent = trans.event1_btn;
+    document.getElementById('event2_date').textContent = trans.event2_date;
+    document.getElementById('event2_title').textContent = trans.event2_title;
+    document.getElementById('event2_desc').textContent = trans.event2_desc;
+    document.getElementById('event2_btn').textContent = trans.event2_btn;
+    document.getElementById('notify_title').textContent = trans.notify_title;
+    document.getElementById('notify_name_label').textContent = trans.notify_name_label;
+    document.getElementById('notify_email_label').textContent = trans.notify_email_label;
+    document.getElementById('notify_interest_label').textContent = trans.notify_interest_label;
+    document.getElementById('notify_opt_select').textContent = trans.notify_opt_select;
+    document.getElementById('notify_opt_tech').textContent = trans.notify_opt_tech;
+    document.getElementById('notify_opt_med').textContent = trans.notify_opt_med;
+    document.getElementById('notify_opt_env').textContent = trans.notify_opt_env;
+    document.getElementById('notify_opt_ai').textContent = trans.notify_opt_ai;
+    document.getElementById('notify_opt_other').textContent = trans.notify_opt_other;
+    document.getElementById('notify_submit_btn').textContent = trans.notify_submit_btn;
+
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  // ربط أزرار التبديل
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // معالجة نموذج الاشتراك
+  document.getElementById('notifyForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const lang = localStorage.getItem('cifis_lang') || 'fr';
+    const messages = {
+      fr: 'Merci ! Vous recevrez nos annonces d’événements.',
+      en: 'Thank you! You will receive our event announcements.',
+      ar: 'شكرًا لك! ستتلقى إشعارات فعالياتنا.'
+    };
+    alert(messages[lang]);
+    this.reset();
+  });
+
+  // تعيين اللغة عند التحميل
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Inscription à un Événement – CIFIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #002654;
+      margin-bottom: 2rem;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.4rem;
+      font-weight: bold;
+      color: #444;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    .btn {
+      background: #002654;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      font-size: 1.1rem;
+      border-radius: 30px;
+      cursor: pointer;
+      display: block;
+      width: fit-content;
+      margin: 1.5rem auto 0;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #001a3a;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Inscription à un Événement</h1>
+
+  <form id="eventRegistrationForm">
+    <div class="form-group">
+      <label for="fullname" id="lbl_fullname">Nom complet *</label>
+      <input type="text" id="fullname" required>
+    </div>
+
+    <div class="form-group">
+      <label for="email" id="lbl_email">Email professionnel *</label>
+      <input type="email" id="email" required>
+    </div>
+
+    <div class="form-group">
+      <label for="country" id="lbl_country">Pays *</label>
+      <input type="text" id="country" required>
+    </div>
+
+    <div class="form-group">
+      <label for="affiliation" id="lbl_affiliation">Institution / Entreprise *</label>
+      <input type="text" id="affiliation" required>
+    </div>
+
+    <div class="form-group">
+      <label for="event" id="lbl_event">Choisir l’événement *</label>
+      <select id="event" required>
+        <option value="" id="opt_select">-- Sélectionner --</option>
+        <option value="forum-2026" id="opt_forum">Forum International de l’Innovation Technologique (15 avril 2026)</option>
+        <option value="atelier-ai" id="opt_ai">Atelier : Éthique de l’IA (10 juin 2026)</option>
+        <option value="autre" id="opt_other">Autre (préciser ci-dessous)</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="message" id="lbl_message">Message / Sujet de présentation (optionnel)</label>
+      <textarea id="message" rows="4"></textarea>
+    </div>
+
+    <button type="submit" class="btn" id="submit_btn">Soumettre l’inscription</button>
+  </form>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  // الترجمات المضمنة
+  const translations = {
+    fr: {
+      page_title: "Inscription à un Événement",
+      lbl_fullname: "Nom complet *",
+      lbl_email: "Email professionnel *",
+      lbl_country: "Pays *",
+      lbl_affiliation: "Institution / Entreprise *",
+      lbl_event: "Choisir l’événement *",
+      opt_select: "-- Sélectionner --",
+      opt_forum: "Forum International de l’Innovation Technologique (15 avril 2026)",
+      opt_ai: "Atelier : Éthique de l’IA (10 juin 2026)",
+      opt_other: "Autre (préciser ci-dessous)",
+      lbl_message: "Message / Sujet de présentation (optionnel)",
+      submit_btn: "Soumettre l’inscription",
+      success_msg: "Merci pour votre inscription !\nNous vous contacterons prochainement avec les détails."
+    },
+    en: {
+      page_title: "Event Registration",
+      lbl_fullname: "Full Name *",
+      lbl_email: "Professional Email *",
+      lbl_country: "Country *",
+      lbl_affiliation: "Institution / Company *",
+      lbl_event: "Select Event *",
+      opt_select: "-- Select --",
+      opt_forum: "International Forum on Technological Innovation (April 15, 2026)",
+      opt_ai: "Workshop: AI Ethics (June 10, 2026)",
+      opt_other: "Other (specify below)",
+      lbl_message: "Message / Presentation Topic (optional)",
+      submit_btn: "Submit Registration",
+      success_msg: "Thank you for your registration!\nWe will contact you soon with details."
+    },
+    ar: {
+      page_title: "التسجيل في فعالية",
+      lbl_fullname: "الاسم الكامل *",
+      lbl_email: "البريد الإلكتروني المهني *",
+      lbl_country: "البلد *",
+      lbl_affiliation: "المؤسسة / الشركة *",
+      lbl_event: "اختر الفعالية *",
+      opt_select: "-- اختر --",
+      opt_forum: "منتدى الابتكار التكنولوجي الدولي (15 أبريل 2026)",
+      opt_ai: "ورشة عمل: أخلاقيات الذكاء الاصطناعي (10 يونيو 2026)",
+      opt_other: "أخرى (حدد أدناه)",
+      lbl_message: "رسالة / موضوع العرض (اختياري)",
+      submit_btn: "إرسال التسجيل",
+      success_msg: "شكرًا لك على تسجيلك!\nسنقوم بالتواصل معك قريبًا بالتفاصيل."
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('lbl_fullname').textContent = trans.lbl_fullname;
+    document.getElementById('lbl_email').textContent = trans.lbl_email;
+    document.getElementById('lbl_country').textContent = trans.lbl_country;
+    document.getElementById('lbl_affiliation').textContent = trans.lbl_affiliation;
+    document.getElementById('lbl_event').textContent = trans.lbl_event;
+    document.getElementById('opt_select').textContent = trans.opt_select;
+    document.getElementById('opt_forum').textContent = trans.opt_forum;
+    document.getElementById('opt_ai').textContent = trans.opt_ai;
+    document.getElementById('opt_other').textContent = trans.opt_other;
+    document.getElementById('lbl_message').textContent = trans.lbl_message;
+    document.getElementById('submit_btn').textContent = trans.submit_btn;
+
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  // ربط أزرار التبديل
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // معالجة إرسال النموذج
+  document.getElementById('eventRegistrationForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const lang = localStorage.getItem('cifis_lang') || 'fr';
+    const msg = translations[lang].success_msg;
+    
+    alert(msg);
+    window.location.href = 'events.html';
+  });
+
+  // تعيين اللغة عند التحميل
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>

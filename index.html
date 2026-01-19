@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CIFIS – Centre International</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f9f9f9;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 60px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+
+    .hero {
+      height: 80vh;
+      background: linear-gradient(rgba(0, 38, 84, 0.7), rgba(0, 38, 84, 0.7)), 
+                  url('assets/inv4.jpg');
+      background-size: cover;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      color: white;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    }
+    .subtitle {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 30px;
+      opacity: 0.9;
+    }
+    .buttons {
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
+      padding: 12px 30px;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+    }
+    .btn-primary {
+      background: #ffcc00;
+      color: #002654;
+    }
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.2);
+      color: white;
+      border: 2px solid white;
+    }
+    @media (max-width: 600px) {
+      h1 { font-size: 1.8rem; }
+      .buttons { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="hero">
+  <h1 id="hero_title">Centre International Français pour Inventeurs et Scientifiques</h1>
+  <p class="subtitle" id="hero_subtitle">Reconnaître l'innovation, promouvoir la science à l'échelle mondiale.</p>
+  
+  <div class="buttons">
+    <a href="apply.html" class="btn btn-primary" id="btn_apply">Obtenir votre certificat</a>
+    <a href="certificate.html" class="btn btn-secondary" id="btn_sample">Voir un exemple de certification</a>
+    <a href="events.html" class="btn btn-secondary" id="btn_events">Événements & Conférences</a>
+    <a href="about.html" class="btn btn-secondary" id="btn_about">À propos</a>
+    <a href="verify.html" class="btn btn-secondary" id="btn_verify">Vérifier une certification</a>
+  </div>
+</div>
+
+<script>
+  // الترجمات مضمنة مباشرة (لا حاجة لملفات JSON)
+  const translations = {
+    fr: {
+      hero_title: "Centre International Français pour Inventeurs et Scientifiques",
+      hero_subtitle: "Reconnaître l'innovation, promouvoir la science à l'échelle mondiale.",
+      btn_apply: "Obtenir votre certificat",
+      certificate_sample: "Voir un exemple de certification",
+      btn_events: "Événements & Conférences",
+      btn_about: "À propos",
+      btn_verify: "Vérifier une certification"
+    },
+    en: {
+      hero_title: "French International Center for Inventors & Scientists",
+      hero_subtitle: "Recognizing innovation, promoting science globally.",
+      btn_apply: "Get your certificate",
+      certificate_sample: "View sample certificate",
+      btn_events: "Events & Conferences",
+      btn_about: "About Us",
+      btn_verify: "Verify Certificate"
+    },
+    ar: {
+      hero_title: "المركز الفرنسي الدولي للمخترعين والعلماء",
+      hero_subtitle: "الاعتراف بالابتكار، وتعزيز العلم على المستوى العالمي.",
+      btn_apply: "احصل على شهادتك الآن",
+      certificate_sample: "عرض نموذج شهادة",
+      btn_events: "المؤتمرات والندوات",
+      btn_about: "من نحن",
+      btn_verify: "التحقق من شهادة"
+    }
+  };
+
+  // تطبيق الترجمة
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    document.getElementById('hero_title').textContent = trans.hero_title;
+    document.getElementById('hero_subtitle').textContent = trans.hero_subtitle;
+    document.getElementById('btn_apply').textContent = trans.btn_apply;
+    document.getElementById('btn_sample').textContent = trans.certificate_sample;
+    document.getElementById('btn_events').textContent = trans.btn_events;
+    document.getElementById('btn_about').textContent = trans.btn_about;
+    document.getElementById('btn_verify').textContent = trans.btn_verify;
+
+    // تحديث الأزرار النشطة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    // حفظ اللغة
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  // ربط أزرار التبديل
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // تعيين اللغة المحفوظة أو الافتراضية
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>

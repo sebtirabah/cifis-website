@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Vérifier une Certification – CIFIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f5f7fa;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #002654;
+      margin-bottom: 2rem;
+    }
+    .verify-box {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: #002654;
+    }
+    input {
+      width: 100%;
+      padding: 12px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1.1rem;
+      text-align: center;
+    }
+    input:focus {
+      border-color: #002654;
+      outline: none;
+    }
+    button {
+      background: #002654;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 30px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background: #001a3a;
+    }
+
+    /* Result Styles */
+    .result {
+      margin-top: 2rem;
+      padding: 1.5rem;
+      border-radius: 10px;
+      display: none;
+    }
+    .valid {
+      background: #e6f4ea;
+      border: 2px solid #34a853;
+      color: #1e5d2f;
+    }
+    .invalid {
+      background: #fce8e6;
+      border: 2px solid #ea4335;
+      color: #9c2727;
+    }
+    .result h3 {
+      margin-bottom: 10px;
+    }
+    .result p {
+      margin: 5px 0;
+    }
+    .cert-id {
+      font-weight: bold;
+      color: #002654;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Vérifier une Certification</h1>
+
+  <div class="verify-box">
+    <div class="form-group">
+      <label for="certId" id="input_label">Entrez le numéro de certification</label>
+      <input type="text" id="certId" placeholder="Ex: CIFIS-2026-001" maxlength="20">
+    </div>
+    <button id="verify_btn" onclick="verifyCertificate()">Vérifier</button>
+
+    <div id="result" class="result"></div>
+  </div>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  // قاعدة بيانات الشهادات (يمكن توسيعها)
+  const certificates = {
+    "CIFIS-2026-001": {
+      name: "Dr. Amira Ben Salah",
+      invention: "Système d’irrigation intelligent basé sur l’IA",
+      date: "15 janvier 2026"
+    },
+    "CIFIS-2026-002": {
+      name: "Prof. Jean Moreau",
+      invention: "Matériau biodégradable pour emballages médicaux",
+      date: "22 février 2026"
+    },
+    "CIFIS-2026-003": {
+      name: "Rabah Sebti",
+      invention: "Adaptive Categorical Imperative for AI Ethics",
+      date: "18 janvier 2026"
+    }
+  };
+
+  // الترجمات المضمنة
+  const translations = {
+    fr: {
+      page_title: "Vérifier une Certification",
+      input_label: "Entrez le numéro de certification",
+      verify_btn: "Vérifier",
+      valid_title: "✅ Certification Valide",
+      invalid_title: "❌ Certification Non Trouvée",
+      cert_number: "Numéro :",
+      holder: "Titulaire :",
+      invention: "Invention :",
+      issue_date: "Date d’émission :",
+      not_found_text: "n’est pas enregistré dans notre base de données.",
+      contact_support: "Veuillez vérifier le numéro ou contacter le support.",
+      placeholder: "Ex: CIFIS-2026-001",
+      alert_empty: "Veuillez entrer un numéro de certification."
+    },
+    en: {
+      page_title: "Verify a Certificate",
+      input_label: "Enter certificate number",
+      verify_btn: "Verify",
+      valid_title: "✅ Valid Certificate",
+      invalid_title: "❌ Certificate Not Found",
+      cert_number: "Number:",
+      holder: "Holder:",
+      invention: "Invention:",
+      issue_date: "Issue Date:",
+      not_found_text: "is not registered in our database.",
+      contact_support: "Please check the number or contact support.",
+      placeholder: "Ex: CIFIS-2026-001",
+      alert_empty: "Please enter a certificate number."
+    },
+    ar: {
+      page_title: "التحقق من شهادة",
+      input_label: "أدخل رقم الشهادة",
+      verify_btn: "التحقق",
+      valid_title: "✅ شهادة صالحة",
+      invalid_title: "❌ الشهادة غير موجودة",
+      cert_number: "الرقم:",
+      holder: "الحائز:",
+      invention: "الاختراع:",
+      issue_date: "تاريخ الإصدار:",
+      not_found_text: "غير مسجّل في قاعدة بياناتنا.",
+      contact_support: "يرجى التحقق من الرقم أو التواصل مع الدعم.",
+      placeholder: "مثال: CIFIS-2026-001",
+      alert_empty: "يرجى إدخال رقم الشهادة."
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    // تحديث النصوص
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('input_label').textContent = trans.input_label;
+    document.getElementById('verify_btn').textContent = trans.verify_btn;
+    document.getElementById('certId').placeholder = trans.placeholder;
+
+    // تحديث أزرار اللغة
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  // دالة التحقق
+  function verifyCertificate() {
+    const lang = localStorage.getItem('cifis_lang') || 'fr';
+    const trans = translations[lang];
+    
+    const input = document.getElementById('certId').value.trim().toUpperCase();
+    const resultDiv = document.getElementById('result');
+
+    if (!input) {
+      alert(trans.alert_empty);
+      return;
+    }
+
+    const cert = certificates[input];
+
+    resultDiv.style.display = 'block';
+
+    if (cert) {
+      resultDiv.className = 'result valid';
+      resultDiv.innerHTML = `
+        <h3>${trans.valid_title}</h3>
+        <p><strong>${trans.cert_number}</strong> <span class="cert-id">${input}</span></p>
+        <p><strong>${trans.holder}</strong> ${cert.name}</p>
+        <p><strong>${trans.invention}</strong> ${cert.invention}</p>
+        <p><strong>${trans.issue_date}</strong> ${cert.date}</p>
+      `;
+    } else {
+      resultDiv.className = 'result invalid';
+      resultDiv.innerHTML = `
+        <h3>${trans.invalid_title}</h3>
+        <p>الرقم <span class="cert-id">${input}</span> ${trans.not_found_text}</p>
+        <p>${trans.contact_support}</p>
+      `;
+    }
+  }
+
+  // ربط أزرار التبديل
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  // السماح بالتحقق بالضغط على Enter
+  document.getElementById('certId').addEventListener('keypress', function(e) {
+    if (e.key === 'Enter') verifyCertificate();
+  });
+
+  // تعيين اللغة عند التحميل
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>
