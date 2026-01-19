@@ -66,18 +66,20 @@
     .team-member {
       text-align: center;
     }
+    /* التعديل الرئيسي هنا */
     .member-photo {
       width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      height: 150px;
+      border-radius: 12px;
       object-fit: cover;
       border: 3px solid #e2e8f0;
       margin-bottom: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .member-placeholder {
       width: 120px;
-      height: 120px;
-      border-radius: 50%;
+      height: 150px;
+      border-radius: 12px;
       background: #cbd5e0;
       display: flex;
       align-items: center;
@@ -87,6 +89,7 @@
       font-weight: bold;
       font-size: 24px;
       border: 3px solid #e2e8f0;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
     .contact-info {
       margin-bottom: 1.5rem;
@@ -153,20 +156,25 @@
   <div class="section">
     <h2 id="team_title">Notre Équipe</h2>
     <div class="team-grid">
+      <!-- Alain Alshouk -->
       <div class="team-member">
-        <img src="assets/team/Alain.png" alt="A. Alshouk" class="member-photo" onerror="this.style.display='none'">
+        <img src="assets/team/Alain.png" alt="Alain Alshouk" class="member-photo" onerror="this.style.display='none'">
         <div class="member-info">
-          <h3>A. Alshouk</h3>
-          <p id="role1">Président et Directeur Scientifique</p>
+          <h3>Alain Alshouk</h3>
+          <p id="role1">Président Général du centre</p>
         </div>
       </div>
+
+      <!-- Rabah Sebti -->
       <div class="team-member">
-        <img src="assets/team/Sebti.png" alt="R. Sebti" class="member-photo" onerror="this.style.display='none'">
+        <img src="assets/team/Sebti.png" alt="Rabah Sebti" class="member-photo" onerror="this.style.display='none'">
         <div class="member-info">
-          <h3>R. Sebti</h3>
+          <h3>Rabah Sebti</h3>
           <p id="role2">Vice-Président</p>
         </div>
       </div>
+
+      <!-- L. R. Massimo -->
       <div class="team-member">
         <img src="assets/team/massimo.png" alt="L. R. Massimo" class="member-photo" onerror="this.style.display='none'">
         <div class="member-info">
@@ -174,11 +182,40 @@
           <p id="role3">Coordination Internationale</p>
         </div>
       </div>
+
+      <!-- Damien Falaise -->
       <div class="team-member">
-        <div class="member-placeholder">D</div>
+        <img src="assets/team/Damia.png" alt="Damien Falaise" class="member-photo" onerror="this.style.display='none'">
         <div class="member-info">
-          <h3>Damia</h3>
+          <h3>Damien Falaise</h3>
           <p id="role4">Comité d’Évaluation</p>
+        </div>
+      </div>
+
+      <!-- Di Balsio Alain Nicolas -->
+      <div class="team-member">
+        <img src="assets/team/Di balsio.png" alt="Di Balsio Alain Nicolas" class="member-photo" onerror="this.style.display='none'">
+        <div class="member-info">
+          <h3>Di Balsio Alain Nicolas</h3>
+          <p id="role5">Directeur Général</p>
+        </div>
+      </div>
+
+      <!-- Rania Ammar -->
+      <div class="team-member">
+        <img src="assets/team/Rania.png" alt="Rania Ammar" class="member-photo" onerror="this.style.display='none'">
+        <div class="member-info">
+          <h3>Rania Ammar</h3>
+          <p id="role6">Représentant en Égypte</p>
+        </div>
+      </div>
+
+      <!-- Gérard Capon -->
+      <div class="team-member">
+        <img src="assets/team/Capon.png" alt="Gérard Capon" class="member-photo" onerror="this.style.display='none'">
+        <div class="member-info">
+          <h3>Gérard Capon</h3>
+          <p id="role7">Membre du Centre</p>
         </div>
       </div>
     </div>
@@ -189,7 +226,7 @@
     <h2 id="contact_title">Nous Contacter</h2>
     
     <div class="contact-info">
-      <p><strong>📧 Email :</strong> <span id="email_label">contact@cifis.org</span></p>
+      <p><strong>📧 Email :</strong> <span id="email_label">Alain.cifis@gmail.com</span></p>
       <p><strong>📍 Siège :</strong> <span id="address_label">Paris, France (Bureau virtuel international)</span></p>
     </div>
 
@@ -232,10 +269,13 @@
       vision_title: "Vision & Valeurs",
       vision_text: "<strong>Vision :</strong> Devenir une référence internationale dans la reconnaissance des innovations éthiques et durables.<br><strong>Valeurs :</strong> Innovation • Éthique • Excellence • Inclusion • Collaboration",
       team_title: "Notre Équipe",
-      role1: "Président et Directeur Scientifique",
+      role1: "Président Général du centre",
       role2: "Vice-Président",
       role3: "Coordination Internationale",
       role4: "Comité d’Évaluation",
+      role5: "Directeur Général",
+      role6: "Représentant en Égypte",
+      role7: "Membre du Centre",
       contact_title: "Nous Contacter",
       email_label: "Alain.cifis@gmail.com",
       address_label: "Paris, France (Bureau virtuel international)",
@@ -253,10 +293,13 @@
       vision_title: "Vision & Values",
       vision_text: "<strong>Vision:</strong> To become an international reference in recognizing ethical and sustainable innovations.<br><strong>Values:</strong> Innovation • Ethics • Excellence • Inclusion • Collaboration",
       team_title: "Our Team",
-      role1: "President & Scientific Director",
+      role1: "General President of the Center",
       role2: "Vice President",
       role3: "International Coordination",
       role4: "Evaluation Committee",
+      role5: "General Director",
+      role6: "Representative in Egypt",
+      role7: "Center Member",
       contact_title: "Contact Us",
       email_label: "Alain.cifis@gmail.com",
       address_label: "Paris, France (Virtual International Office)",
@@ -274,10 +317,13 @@
       vision_title: "رؤيتنا وقيمنا",
       vision_text: "<strong>الرؤية:</strong> أن نصبح مرجعًا دوليًا في الاعتراف بالابتكارات الأخلاقية والمستدامة.<br><strong>القيم:</strong> الابتكار • الأخلاقيات • التميز • الشمول • التعاون",
       team_title: "فريقنا",
-      role1: "الرئيس والمدير العلمي",
+      role1: "الرئيس العام للمركز",
       role2: "نائب الرئيس",
       role3: "التنسيق الدولي",
       role4: "لجنة التقييم",
+      role5: "المدير العام",
+      role6: "الممثل في مصر",
+      role7: "عضو في المركز",
       contact_title: "اتصل بنا",
       email_label: "Alain.cifis@gmail.com",
       address_label: "باريس، فرنسا (مكتب افتراضي دولي)",
@@ -307,6 +353,9 @@
     document.getElementById('role2').textContent = trans.role2;
     document.getElementById('role3').textContent = trans.role3;
     document.getElementById('role4').textContent = trans.role4;
+    document.getElementById('role5').textContent = trans.role5;
+    document.getElementById('role6').textContent = trans.role6;
+    document.getElementById('role7').textContent = trans.role7;
     document.getElementById('contact_title').textContent = trans.contact_title;
     document.getElementById('email_label').textContent = trans.email_label;
     document.getElementById('address_label').textContent = trans.address_label;
