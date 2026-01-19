@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Partenariats – CIFIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #002654;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+    }
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .partner-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 1.5rem;
+    }
+    .partner-card {
+      text-align: center;
+      padding: 1.5rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      transition: transform 0.2s;
+    }
+    .partner-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+    .partner-logo {
+      width: 100px;
+      height: 100px;
+      background: #f1f5f9;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 15px;
+      color: #4a5568;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    h2 {
+      color: #002654;
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Nos Partenariats Internationaux</h1>
+
+  <div class="section">
+    <p id="intro_text">
+      Le Centre International Français pour Inventeurs et Scientifiques (CIFIS) entretient des relations solides avec les principales organisations internationales, ce qui lui confère une influence significative dans le soutien et la protection des inventeurs à l’échelle mondiale.
+    </p>
+
+    <div class="partner-grid">
+      <!-- WIPO -->
+      <div class="partner-card">
+        <div class="partner-logo">WIPO</div>
+        <h3 id="wipo_title">Organisation Mondiale de la Propriété Intellectuelle (OMPI / WIPO)</h3>
+        <p id="wipo_desc">Collaboration étroite pour assurer la conformité des inventions aux normes internationales de propriété intellectuelle.</p>
+      </div>
+
+      <!-- Union Française des Inventeurs -->
+      <div class="partner-card">
+        <div class="partner-logo">UFI</div>
+        <h3 id="ufi_title">Union Française des Inventeurs</h3>
+        <p id="ufi_desc">Partenariat stratégique pour renforcer la position des inventeurs au sein de l’écosystème économique français.</p>
+      </div>
+
+      <!-- Représentation Mondiale -->
+      <div class="partner-card">
+        <div class="partner-logo">🌍</div>
+        <h3 id="global_title">Représentation Internationale</h3>
+        <p id="global_desc">Réseau d’experts et d’organisations partenaires dans plus de 20 pays, offrant une protection et un accompagnement locaux.</p>
+      </div>
+    </div>
+
+    <h2 id="impact_title">Impact de nos partenariats</h2>
+    <p id="impact_text1">
+      Grâce à ces alliances stratégiques, le CIFIS offre à ses membres :
+    </p>
+    <ul>
+      <li>Accès prioritaire aux mécanismes de dépôt international de brevets via WIPO.</li>
+      <li>Reconnaissance officielle au sein du réseau national français des inventeurs.</li>
+      <li>Assistance juridique et commerciale dans leurs pays respectifs grâce à nos représentants locaux.</li>
+    </ul>
+    <p id="impact_text2">
+      Ces partenariats transforment le CIFIS en une véritable passerelle entre l’innovation locale et les marchés mondiaux.
+    </p>
+  </div>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  const translations = {
+    fr: {
+      page_title: "Nos Partenariats Internationaux",
+      intro_text: "Le Centre International Français pour Inventeurs et Scientifiques (CIFIS) entretient des relations solides avec les principales organisations internationales, ce qui lui confère une influence significative dans le soutien et la protection des inventeurs à l’échelle mondiale.",
+      wipo_title: "Organisation Mondiale de la Propriété Intellectuelle (OMPI / WIPO)",
+      wipo_desc: "Collaboration étroite pour assurer la conformité des inventions aux normes internationales de propriété intellectuelle.",
+      ufi_title: "Union Française des Inventeurs",
+      ufi_desc: "Partenariat stratégique pour renforcer la position des inventeurs au sein de l’écosystème économique français.",
+      global_title: "Représentation Internationale",
+      global_desc: "Réseau d’experts et d’organisations partenaires dans plus de 20 pays, offrant une protection et un accompagnement locaux.",
+      impact_title: "Impact de nos partenariats",
+      impact_text1: "Grâce à ces alliances stratégiques, le CIFIS offre à ses membres :",
+      impact_text2: "Ces partenariats transforment le CIFIS en une véritable passerelle entre l’innovation locale et les marchés mondiaux."
+    },
+    en: {
+      page_title: "Our International Partnerships",
+      intro_text: "The French International Center for Inventors & Scientists (CIFIS) maintains strong relationships with leading international organizations, giving it significant influence in supporting and protecting inventors globally.",
+      wipo_title: "World Intellectual Property Organization (WIPO)",
+      wipo_desc: "Close collaboration to ensure inventions comply with international intellectual property standards.",
+      ufi_title: "French Union of Inventors",
+      ufi_desc: "Strategic partnership to strengthen inventors' position within the French economic ecosystem.",
+      global_title: "Global Representation",
+      global_desc: "Network of experts and partner organizations in over 20 countries, providing local protection and support.",
+      impact_title: "Impact of Our Partnerships",
+      impact_text1: "Thanks to these strategic alliances, CIFIS offers its members:",
+      impact_text2: "These partnerships transform CIFIS into a true gateway between local innovation and global markets."
+    },
+    ar: {
+      page_title: "شراكاتنا الدولية",
+      intro_text: "يتمتع المركز الفرنسي الدولي للمخترعين والعلماء (CIFIS) بعلاقات قوية مع المنظمات الدولية الرائدة، مما يمنحه تأثيرًا كبيرًا في دعم وحماية المخترعين على المستوى العالمي.",
+      wipo_title: "المنظمة العالمية للملكية الفكرية (WIPO)",
+      wipo_desc: "تعاون وثيق لضمان توافق الاختراعات مع المعايير الدولية للملكية الفكرية.",
+      ufi_title: "الاتحاد الفرنسي للمخترعين",
+      ufi_desc: "شراكة استراتيجية لتعزيز مكانة المخترعين داخل النظام الاقتصادي الفرنسي.",
+      global_title: "التمثيل الدولي",
+      global_desc: "شبكة من الخبراء والمنظمات الشريكة في أكثر من 20 دولة، توفر حماية ودعمًا محليًّا.",
+      impact_title: "تأثير شراكاتنا",
+      impact_text1: "بفضل هذه التحالفات الاستراتيجية، يقدم CIFIS لأعضائه:",
+      impact_text2: "تحول هذه الشراكات CIFIS إلى بوابة حقيقية بين الابتكار المحلي والأسواق العالمية."
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('intro_text').textContent = trans.intro_text;
+    document.getElementById('wipo_title').textContent = trans.wipo_title;
+    document.getElementById('wipo_desc').textContent = trans.wipo_desc;
+    document.getElementById('ufi_title').textContent = trans.ufi_title;
+    document.getElementById('ufi_desc').textContent = trans.ufi_desc;
+    document.getElementById('global_title').textContent = trans.global_title;
+    document.getElementById('global_desc').textContent = trans.global_desc;
+    document.getElementById('impact_title').textContent = trans.impact_title;
+    document.getElementById('impact_text1').textContent = trans.impact_text1;
+    document.getElementById('impact_text2').textContent = trans.impact_text2;
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Présentation – CIFIS</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    body {
+      background: #f9f9f9;
+      color: #333;
+      line-height: 1.7;
+    }
+    header {
+      background: linear-gradient(135deg, #002654, #ce1126);
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo img {
+      height: 50px;
+    }
+    .lang-switcher {
+      display: flex;
+      gap: 10px;
+    }
+    .lang-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .lang-btn.active { background: white; color: #002654; }
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+    }
+    h1 {
+      text-align: center;
+      color: #002654;
+      margin-bottom: 2rem;
+      font-size: 2.2rem;
+    }
+    h2 {
+      color: #002654;
+      margin: 1.8rem 0 1rem;
+      font-size: 1.6rem;
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.3rem;
+    }
+    h3 {
+      color: #ce1126;
+      margin: 1.5rem 0 0.8rem;
+      font-size: 1.3rem;
+    }
+    p, ul {
+      margin-bottom: 1.2rem;
+      font-size: 1.05rem;
+    }
+    ul {
+      padding-left: 1.5rem;
+    }
+    li {
+      margin-bottom: 0.6rem;
+    }
+    .section {
+      background: white;
+      padding: 2rem;
+      border-radius: 10px;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #666;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <img src="assets/logo.png" alt="C.I.F.I.S Logo">
+  </div>
+  <div class="lang-switcher">
+    <button class="lang-btn" data-lang="fr">FR</button>
+    <button class="lang-btn" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="ar">AR</button>
+  </div>
+</header>
+
+<div class="container">
+  <h1 id="page_title">Centre International Français pour Inventeurs et Scientifiques (CIFIS)</h1>
+
+  <div class="section">
+    <h2 id="intro_title">Des décennies d’innovation… pour un avenir meilleur pour l’humanité</h2>
+    
+    <h3 id="history_title">Introduction et Historique</h3>
+    <p id="history_text">
+      Le Centre International Français pour Inventeurs et Scientifiques (CIFIS) a été fondé à la fin des années 1990 au cœur de la France, en tant que plateforme pionnière reliant science et innovation. Le centre a été lancé avec une vision ambitieuse par son fondateur et directeur actuel, le Dr. Yassine Alshouk, après une carrière scientifique remarquable.
+    </p>
+    <p>
+      Le CIFIS est fier d’être associé à des innovations majeures qui ont transformé les concepts scientifiques, en plaçant toujours comme objectif principal la transformation des théories scientifiques en solutions concrètes au service de la communauté internationale.
+    </p>
+
+    <h3 id="mission_title">Mission et Objectifs Stratégiques</h3>
+    <p>
+      Le CIFIS est une organisation internationale à but non lucratif dédiée à la communauté des scientifiques et inventeurs. Nous croyons que l’invention n’est pas seulement une idée, mais un processus intégré nécessitant accompagnement et protection.
+    </p>
+    <p><strong>Nos objectifs stratégiques :</strong></p>
+    <ul>
+      <li><strong>Accompagnement des talents :</strong> Découverte de chercheurs et inventeurs, avec un soutien dès les premières étapes.</li>
+      <li><strong>Construction de ponts :</strong> Facilitation de la collaboration entre le monde académique et l’industrie pour transformer les inventions en produits commerciaux.</li>
+      <li><strong>Protection juridique :</strong> Garantie des droits des inventeurs en France et en Suisse.</li>
+      <li><strong>Autonomisation économique :</strong> Aide aux entrepreneurs innovants à construire des modèles économiques durables autour de leurs inventions.</li>
+    </ul>
+
+    <h3 id="services_title">L’Écosystème CIFIS</h3>
+    <p>Le centre propose un écosystème complet couvrant tout le parcours de l’invention, de l’idée au marché :</p>
+    <ul>
+      <li><strong>Conseil technique :</strong> Accompagnement pour affiner les idées, développer des prototypes, et présenter les inventions de manière professionnelle.</li>
+      <li><strong>Soutien juridique :</strong> Gestion des dépôts de brevets, conseils en propriété intellectuelle, et représentation administrative.</li>
+      <li><strong>Réseau international :</strong> Accès à un réseau mondial de scientifiques, ingénieurs et industriels pour faciliter l’entrée sur les marchés internationaux.</li>
+    </ul>
+
+    <h3 id="membership_title">Conditions et Critères d’Adhésion</h3>
+    <p>Le CIFIS est ouvert à toute personne passionnée par l’innovation et capable de créer le changement. Les adhésions sont classées selon les critères suivants :</p>
+    <ul>
+      <li><strong>Éligibilité :</strong> Posséder une invention (ou une idée en cours de développement) originale, innovante et applicable industriellement.</li>
+      <li><strong>Engagement éthique :</strong> Respect des principes d’intégrité scientifique et des droits de propriété intellectuelle d’autrui.</li>
+    </ul>
+    <p><strong>Catégories d’adhésion :</strong></p>
+    <ul>
+      <li><strong>Membre Inventeur :</strong> Pour les détenteurs de brevets.</li>
+      <li><strong>Membre Chercheur :</strong> Pour les universitaires et scientifiques.</li>
+      <li><strong>Membre Honoraire :</strong> Pour les institutions et entreprises soutenant l’innovation.</li>
+    </ul>
+    <p><strong>Avantages :</strong> Plus de 350 membres bénéficient de consultations juridiques prioritaires, de réductions sur les frais de participation aux conférences internationales, et d’un accès exclusif à une base de données de partenaires industriels.</p>
+
+    <h3 id="community_title">Communauté Numérique et Humaine</h3>
+    <p>Le CIFIS est fier d’être une incubatrice pour plus de 350 membres actifs parmi l’élite des scientifiques et inventeurs. Notre présence s’étend bien au-delà de la France grâce à un réseau d’organisations et d’agents internationaux représentant le centre dans le monde entier, faisant de nous une institution transfrontalière.</p>
+
+    <h3 id="conclusion_title">Conclusion</h3>
+    <p>Le Centre International Français pour Inventeurs et Scientifiques n’est pas seulement une institution : c’est une maison pour tout esprit créatif. Nous croyons que l’innovation est le véritable moteur de l’économie mondiale, et en soutenant les inventeurs, nous ne protégeons pas seulement leurs idées — nous construisons avec eux un avenir plus brillant et plus avancé.</p>
+  </div>
+</div>
+
+<footer>
+  © 2026 C.I.F.I.S – Centre International Français pour Inventeurs et Scientifiques
+</footer>
+
+<script>
+  // الترجمات المضمنة (يمكنك توسيعها لاحقًا)
+  const translations = {
+    fr: {
+      page_title: "Centre International Français pour Inventeurs et Scientifiques (CIFIS)",
+      intro_title: "Des décennies d’innovation… pour un avenir meilleur pour l’humanité",
+      history_title: "Introduction et Historique",
+      mission_title: "Mission et Objectifs Stratégiques",
+      services_title: "L’Écosystème CIFIS",
+      membership_title: "Conditions et Critères d’Adhésion",
+      community_title: "Communauté Numérique et Humaine",
+      conclusion_title: "Conclusion"
+    },
+    en: {
+      page_title: "French International Center for Inventors & Scientists (CIFIS)",
+      intro_title: "Decades of Innovation… for a Better Future for Humanity",
+      history_title: "Introduction and Historical Background",
+      mission_title: "Mission and Strategic Objectives",
+      services_title: "The CIFIS Ecosystem",
+      membership_title: "Membership Criteria and Conditions",
+      community_title: "Digital and Human Community",
+      conclusion_title: "Conclusion"
+    },
+    ar: {
+      page_title: "المركز الفرنسي الدولي للمخترعين والعلماء (CIFIS)",
+      intro_title: "عقود من الابتكار... من أجل مستقبل أفضل للبشرية",
+      history_title: "مقدمة ونبذة تاريخية",
+      mission_title: "الرسالة والأهداف الاستراتيجية",
+      services_title: "منظومة CIFIS المتكاملة",
+      membership_title: "شروط ومعايير العضوية",
+      community_title: "المجتمع الرقمي والبشري",
+      conclusion_title: "خاتمة"
+    }
+  };
+
+  function setLanguage(lang) {
+    const trans = translations[lang] || translations.fr;
+    
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    
+    document.getElementById('page_title').textContent = trans.page_title;
+    document.getElementById('intro_title').textContent = trans.intro_title;
+    document.getElementById('history_title').textContent = trans.history_title;
+    document.getElementById('mission_title').textContent = trans.mission_title;
+    document.getElementById('services_title').textContent = trans.services_title;
+    document.getElementById('membership_title').textContent = trans.membership_title;
+    document.getElementById('community_title').textContent = trans.community_title;
+    document.getElementById('conclusion_title').textContent = trans.conclusion_title;
+
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.lang === lang);
+    });
+
+    localStorage.setItem('cifis_lang', lang);
+  }
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setLanguage(btn.dataset.lang);
+    });
+  });
+
+  const savedLang = localStorage.getItem('cifis_lang') || 'fr';
+  setLanguage(savedLang);
+</script>
+
+</body>
+</html>
