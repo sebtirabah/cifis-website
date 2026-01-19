@@ -108,11 +108,13 @@
   <p class="subtitle" id="hero_subtitle">Reconnaître l'innovation, promouvoir la science à l'échelle mondiale.</p>
   
   <div class="buttons">
+    <a href="presentation.html" class="btn btn-secondary" id="btn_presentation">Présentation détaillée</a>
+    <a href="partnerships.html" class="btn btn-secondary" id="btn_partnerships">Partenariats</a>
+    <a href="events.html" class="btn btn-secondary" id="btn_events">Événements</a>
     <a href="apply.html" class="btn btn-primary" id="btn_apply">Obtenir votre certificat</a>
-    <a href="certificate.html" class="btn btn-secondary" id="btn_sample">Voir un exemple de certification</a>
-    <a href="events.html" class="btn btn-secondary" id="btn_events">Événements & Conférences</a>
-    <a href="about.html" class="btn btn-secondary" id="btn_about">À propos</a>
+    <a href="certificate.html" class="btn btn-secondary" id="btn_sample">Voir un exemple</a>
     <a href="verify.html" class="btn btn-secondary" id="btn_verify">Vérifier une certification</a>
+    <a href="about.html" class="btn btn-secondary" id="btn_about">À propos</a>
   </div>
 </div>
 
@@ -126,7 +128,9 @@
       certificate_sample: "Voir un exemple de certification",
       btn_events: "Événements & Conférences",
       btn_about: "À propos",
-      btn_verify: "Vérifier une certification"
+      btn_verify: "Vérifier une certification",
+      btn_presentation: "Présentation détaillée",
+      btn_partnerships: "Partenariats"
     },
     en: {
       hero_title: "French International Center for Inventors & Scientists",
@@ -135,7 +139,9 @@
       certificate_sample: "View sample certificate",
       btn_events: "Events & Conferences",
       btn_about: "About Us",
-      btn_verify: "Verify Certificate"
+      btn_verify: "Verify Certificate",
+      btn_presentation: "Detailed Presentation",
+      btn_partnerships: "Partnerships"
     },
     ar: {
       hero_title: "المركز الفرنسي الدولي للمخترعين والعلماء",
@@ -144,7 +150,9 @@
       certificate_sample: "عرض نموذج شهادة",
       btn_events: "المؤتمرات والندوات",
       btn_about: "من نحن",
-      btn_verify: "التحقق من شهادة"
+      btn_verify: "التحقق من شهادة",
+      btn_presentation: "عرض تفصيلي",
+      btn_partnerships: "الشراكات"
     }
   };
 
@@ -163,6 +171,8 @@
     document.getElementById('btn_events').textContent = trans.btn_events;
     document.getElementById('btn_about').textContent = trans.btn_about;
     document.getElementById('btn_verify').textContent = trans.btn_verify;
+    document.getElementById('btn_presentation').textContent = trans.btn_presentation;
+    document.getElementById('btn_partnerships').textContent = trans.btn_partnerships;
 
     // تحديث الأزرار النشطة
     document.querySelectorAll('.lang-btn').forEach(btn => {
